@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mercado e Açougue Avenida Ltda</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .info { margin-bottom: 15px; }
+    button { margin: 5px; }
+    .output { background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+
+  <h1>Mercado e Açougue Avenida Ltda</h1>
+  <p><strong>CNPJ:</strong> 37.609.340/0001-24</p>
+
+  <div>
+    <button onclick="show('basicos')">Dados Básicos</button>
+    <button onclick="show('contato')">Contato</button>
+    <button onclick="show('local')">Localização</button>
+    <button onclick="show('atividades')">Atividades</button>
+  </div>
+
+  <div class="output" id="output">
+    Clique em um botão para ver os detalhes.
+  </div>
+
+  <script>
+    const data = {
+      basicos: {
+        "Razão Social": "Mercado e Açougue Avenida Ltda",
+        "Tipo": "Matriz",
+        "Data de abertura": "03/07/2020",
+        "Situação cadastral": "Ativa (desde 03/07/2020)",
+        "Capital social": "R$ 50.000,00",
+        "Natureza jurídica": "Sociedade Empresária Limitada",
+        "Empresa MEI": "Sim"
+      },
+      contato: {
+        "E‑mail": "[email protected]",
+        "Telefone": "(47) 98881‑9898"
+      },
+      local: {
+        "Logradouro": "Rua Euclides Woitexem, 652",
+        "Bairro": "Volta Redonda",
+        "Cidade/UF": "Araquari – SC",
+        "CEP": "89245‑000"
+      },
+      atividades: {
+        "Atividade principal": "4722‑9/01 – Comércio varejista de carnes – açougues",
+        "Atividade secundária": "4712‑1/00 – Comércio varejista de mercadorias em geral"
+      }
+    };
+
+    function show(section) {
+      const info = data[section];
+      let html = '<h2>' + section.charAt(0).toUpperCase() + section.slice(1) + '</h2><ul>';
+      for (const key in info) {
+        html += `<li><strong>${key}:</strong> ${info[key]}</li>`;
+      }
+      html += '</ul>';
+      document.getElementById('output').innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
